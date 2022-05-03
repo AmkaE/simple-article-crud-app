@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+		<style>
+			.card-header {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			@media screen and (max-width: 425px) {
+				.card-header {
+					align-items: center;
+					flex-direction: column;
+				}
+			}
+		</style>
+		<title>Articles</title>
+	</head>
+	<body>
+		<div class="container pt-1 pb-2">
+			<div class="card border rounded">
+				<div class="card-header bg-dark text-white">
+					<div class="pb-2">Last Updated</div>
+					<div>
+						<a href="/articles/" class="btn btn-secondary">Go Back</a>
+
+						<a href="/articles/<%= article.id %>/edit" class="btn btn-info"
+							>Edit</a
+						>
+						<form
+							class="d-inline"
+							method="post"
+							action="/articles/<%= article.id %>/read?_method=delete"
+						>
+							<button class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				</div>
+				<div class="card-body">
+					<h2 class="title text-center"><%= article.title %></h2>
+					<p class="card-text"><%= article.text %></p>
+				</div>
+				<div class="card-footer bg-dark text-white d-flex justify-content-end">
+					<div>
+						<a href="/articles/" class="btn btn-secondary">Go Back</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
